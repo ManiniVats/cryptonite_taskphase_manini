@@ -54,3 +54,49 @@ pwn.college{cQ9yphISZfsLAHIVwgyPKeBy72q.dZDN1QDL5gDO0czW}
 > `cd` stands for *c*hange *d*irectory
 
 Here, we are rewarded with the flag `pwn.college{cQ9yphISZfsLAHIVwgyPKeBy72q.dZDN1QDL5gDO0czW}`, upon submitting of which, the challenge is completed.
+
+## Position Elsewhere
+This challenge is a practice in continuation with the last sub-topic.
+So similarly, when we execute `/challenge/run`, it shows an error, stating that we are not in the correct directory:
+```
+hacker@paths~position-elsewhere:~$ /challenge/run
+Incorrect...
+You are not currently in the /var directory.
+Please use the `cd` utility to change directory appropriately.
+```
+So now we know that the flag is located in the `/var` directory.
+
+Thus, now using the `cd` command, we get:
+```
+hacker@paths~position-elsewhere:~$ cd /var
+hacker@paths~position-elsewhere:/var$ /challenge/run
+Correct!!!
+/challenge/run is an absolute path, invoked from the right directory!
+Here is your flag:
+pwn.college{oJs4DxojICfM5JZVwQFn-cJ-t9-.ddDN1QDL5gDO0czW}
+```
+
+Here, we are rewarded with the flag `pwn.college{oJs4DxojICfM5JZVwQFn-cJ-t9-.ddDN1QDL5gDO0czW}`, upon submitting of which, the challenge is completed.
+
+## Position Yet Elsewhere
+This challenge, again, is a practice in continuation with the last sub-topic.
+So similarly, when we execute `/challenge/run`, it shows an error, stating that we are not in the correct directory:
+```
+hacker@paths~position-yet-elsewhere:~$ /challenge/run
+Incorrect...
+You are not currently in the /home directory.
+Please use the `cd` utility to change directory appropriately.
+```
+So now we know that the flag is located in the `/home` directory.
+
+Thus, now using the `cd` command, we get:
+```
+hacker@paths~position-yet-elsewhere:~$ cd /home
+hacker@paths~position-yet-elsewhere:/home$ /challenge/run
+Correct!!!
+/challenge/run is an absolute path, invoked from the right directory!
+Here is your flag:
+pwn.college{4lEDUy4tWOgAqx6fimBsR2lO2xj.dhDN1QDL5gDO0czW}
+```
+
+Here, we are rewarded with the flag `pwn.college{4lEDUy4tWOgAqx6fimBsR2lO2xj.dhDN1QDL5gDO0czW}`, upon submitting of which, the challenge is completed.
