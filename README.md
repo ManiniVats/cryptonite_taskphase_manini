@@ -1,2 +1,4 @@
-## cryptonite_taskphase_manini
+# cryptonite_taskphase_manini
 This repository contains my write-ups of modules for cyptonite taskphase.
+## References
+[Markdown Guide By GitHub](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-andformatting-on-github/basic-writing-and-formatting-syntax)
