@@ -27,3 +27,27 @@ Here, upon invoking the `hello` command, we are rewarded with the flag `pwn.coll
 
 >[!Caution]
 >Commands in Linux are case sensitive: `hello` is different from `HELLO`.
+
+## Introduction to Arguments
+Our input is resolved into a command and its arguments. The first word is the command, and the subsequent words are arguments.
+
+- Here, we run the command line `echo hello hackers`, where `echo` is the command and `hello` and `hackers` are the two arguments to the command `echo`.
+
+```
+hacker@hello~intro-to-arguments:~$ echo hello hackers
+hello hackers
+hacker@hello~intro-to-arguments:~$
+```
+> `echo` is a simple command that "echoes" all of its arguments back out onto the terminal.
+
+- Now, we run the hello command with a single argument of hackers.
+```
+hacker@hello~intro-to-arguments:~$ hello hackers
+Success! Here is your flag:
+pwn.college{o64ku1OQyxtd-jO3EEgfBplHCpp.dhjNyUDL5gDO0czW}
+hacker@hello~intro-to-arguments:~$
+```
+
+Here we are rewarded with the flag `ppwn.college{o64ku1OQyxtd-jO3EEgfBplHCpp.dhjNyUDL5gDO0czW}`, upon submitting of which, the challenge is completed.
+
+![](https://postimg.cc/vcyfg0zQ)
