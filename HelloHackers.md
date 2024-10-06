@@ -50,4 +50,3 @@ hacker@hello~intro-to-arguments:~$
 
 Here we are rewarded with the flag `ppwn.college{o64ku1OQyxtd-jO3EEgfBplHCpp.dhjNyUDL5gDO0czW}`, upon submitting of which, the challenge is completed.
 
-![](https://postimg.cc/vcyfg0zQ)
