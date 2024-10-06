@@ -26,8 +26,31 @@ Correct!!!
 pwn.college{ojecaZRxBB_fyZ-jLN4Z0iGUgm6.dVDN1QDL5gDO0czW}
 hacker@paths~program-and-absolute-paths:~
 ```
-> Again, 'absolute path' is invoked.
+> Again, an 'absolute path' is invoked.
 
 Here, we are rewarded with the flag `pwn.college{ojecaZRxBB_fyZ-jLN4Z0iGUgm6.dVDN1QDL5gDO0czW}`, upon submitting of which, the challenge is completed.
 
 ## Position Thy Self
+We can navigate around directories by using the `cd` _command_ and passing a path to it as an _argument_. 
+
+Here, when we execute `/challenge/run`, it shows an error, stating that we are not in the correct directory:
+```
+hacker@paths~position-thy-self:~$ /challenge/run
+Incorrect...
+You are not currently in the /usr/include directory.
+Please use the `cd` utility to change directory appropriately.
+```
+So now we know that the flag is located in the `/usr/include` directory.
+
+Thus, now using the `cd` command, we get:
+```
+hacker@paths~position-thy-self:~$ cd /usr/include
+hacker@paths~position-thy-self:/usr/include$ /challenge/run
+Correct!!!
+/challenge/run is an absolute path, invoked from the right directory!
+Here is your flag:
+pwn.college{cQ9yphISZfsLAHIVwgyPKeBy72q.dZDN1QDL5gDO0czW}
+```
+> `cd` stands for *c*hange *d*irectory
+
+Here, we are rewarded with the flag `pwn.college{cQ9yphISZfsLAHIVwgyPKeBy72q.dZDN1QDL5gDO0czW}`, upon submitting of which, the challenge is completed.
