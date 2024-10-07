@@ -100,3 +100,22 @@ pwn.college{4lEDUy4tWOgAqx6fimBsR2lO2xj.dhDN1QDL5gDO0czW}
 ```
 
 Here, we are rewarded with the flag `pwn.college{4lEDUy4tWOgAqx6fimBsR2lO2xj.dhDN1QDL5gDO0czW}`, upon submitting of which, the challenge is completed.
+
+## Implicit Relative Paths, from /
+Current Working Directory `cwd` does not matter for absolute paths, but does for relative paths.
+> A relative path is any path that does not start at root `/` and is interpreted relative to our `cwd`.
+
+Here, we need to run `/challenge/run` using a relative path while having a `cwd` of `/`
+
+With the help of the hint given, we know that the relative path is `challenge/run`
+```
+hacker@paths~implicit-relative-paths-from-:~$ cd /
+hacker@paths~implicit-relative-paths-from-:/$ challenge/run
+Correct!!!
+challenge/run is a relative path, invoked from the right directory!
+Here is your flag:
+pwn.college{kWbDsmUkeffjp7MYyzD9iJfilGn.dlDN1QDL5gDO0czW}
+```
+Here, we are rewarded with the flag `pwn.college{kWbDsmUkeffjp7MYyzD9iJfilGn.dlDN1QDL5gDO0czW}`, upon submitting of which, the challenge is completed.
+
+## Explicit Relative Paths, from /
