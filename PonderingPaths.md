@@ -162,7 +162,37 @@ pwn.college{4SVJWTaIcpZYFwd6HU8zm89nGt4.dFTN1QDL5gDO0czW}
 ```
 **This is necessary, or else we could accidentally execute a program in our `cwd` that happened to have the same name as the core system utilities.**
 
-Here, we are rewarded with the flag `ppwn.college{4SVJWTaIcpZYFwd6HU8zm89nGt4.dFTN1QDL5gDO0czW}`, upon submitting of which, the challenge is completed.
+Here, we are rewarded with the flag `pwn.college{4SVJWTaIcpZYFwd6HU8zm89nGt4.dFTN1QDL5gDO0czW}`, upon submitting of which, the challenge is completed.
 
+## Home Sweet Home
+`hacker@paths~home-sweet-home:~$`
 
+The `~` in this prompt is the `cwd`, with `~` being shorthand for `/home/hacker`. 
+
+Whenever `~` is provided as the start of an argument, it will expand it to our home directory: 
+```
+hacker@paths~home-sweet-home:~$ echo LOOK: ~
+LOOK: /home/hacker
+```
+>[!IMPORTANT]
+>The expansion of `~` is an absolute path, and only the _leading_ `~` is expanded.
+
+Here, we need to specify a file (with certain constraints) as an argument on the command line, after which, `/challenge/run` will write a copy of the flag to that particular file.
+
+In accordance with the given constraints in the challenge, let `m` be the specified file. Thus, its absolute path will be `~/m`.
+```
+hacker@paths~home-sweet-home:~$ /challenge/run ~/m
+Writing the file to /home/hacker/m!
+... and reading it back to you:
+pwn.college{IBh5IDLIzhLno-w4Vw41viW8Vd9.dNzM4QDL5gDO0czW}
+```
+Here, we are rewarded with the flag `pwn.college{IBh5IDLIzhLno-w4Vw41viW8Vd9.dNzM4QDL5gDO0czW}`, upon submitting of which, the challenge is completed.
+
+>[!NOTE]
+>`cd` uses our home directory as the default destination:
+```
+hacker@paths~home-sweet-home:~$ cd /tmp
+hacker@paths~home-sweet-home:/tmp$ cd
+hacker@paths~home-sweet-home:~$
+```
 
