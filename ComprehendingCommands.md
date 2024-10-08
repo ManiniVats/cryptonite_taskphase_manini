@@ -44,3 +44,47 @@ hacker@commands~more-catting-practice:~$
 ```
 
 Here we are rewarded with the flag `pwn.college{MMhm8Cr8_tAOHYIF7BumRLjsEf-.dBjM5QDL5gDO0czW}`, upon submitting of which, the challenge is completed.
+
+## grepping for a needle in haystack
+Sometimes, we need to find a particular set of data in a large file, which would be just like finding a needle in a haystack.
+
+The `grep` command helps search the file for lines of text containing SEARCH_STRING and print them to the console.
+
+Here, we have been given the absolute path of the flag as `/challenge/data.txt`
+
+We know that our flag always starts with `pwn.college`, thus making it the SEARCH_STRING.
+
+Thus, grepping for flag:
+```
+hacker@commands~grepping-for-a-needle-in-a-haystack:~$ grep pwn.college /challenge/data.txt
+pwn.college{kAyMqSFRL7PQFAWIQyUsyZ4edmY.ddTM4QDL5gDO0czW}
+```
+
+Here we are rewarded with the flag `pwn.college{kAyMqSFRL7PQFAWIQyUsyZ4edmY.ddTM4QDL5gDO0czW}`, upon submitting of which, the challenge is completed.
+
+## listing files
+The `ls` command lists files in all the directories provided to it as arguments, and in the `cwd` if no arguments are provided.
+
+Here, we have to find `/challenge/run` which has been renamed and kept in the `/challenge` directory, by listing out all the files in it.
+```
+hacker@commands~listing-files:~$ ls /challenge
+1780-renamed-run-6197  DESCRIPTION.md
+hacker@commands~listing-files:~$
+```
+Now we know that the absolute path of the required file is `/challenge/1780-renamed-run-6197`
+```
+hacker@commands~listing-files:~$ /challenge/1780-renamed-run-6197
+Yahaha, you found me! Here is your flag:
+pwn.college{QoJgXb33NfkodTajV4Wm0WqMBYK.dhjM4QDL5gDO0czW}
+hacker@commands~listing-files:~$
+```
+
+Here we are rewarded with the flag `pwn.college{QoJgXb33NfkodTajV4Wm0WqMBYK.dhjM4QDL5gDO0czW}`, upon submitting of which, the challenge is completed.
+
+
+
+
+
+
+
+
