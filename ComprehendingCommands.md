@@ -81,6 +81,34 @@ hacker@commands~listing-files:~$
 
 Here we are rewarded with the flag `pwn.college{QoJgXb33NfkodTajV4Wm0WqMBYK.dhjM4QDL5gDO0czW}`, upon submitting of which, the challenge is completed.
 
+## touching files
+We can create a new, blank file by _touching_ it with the `touch` command.
+In this challenge, we need to create two files, `/tmp/pwn` and `/tmp/college`, and run `/challenge/run` to get the flag:
+```
+hacker@commands~touching-files:~$ touch /tmp/pwn
+hacker@commands~touching-files:~$ touch /tmp/college
+hacker@commands~touching-files:~$ /challenge/run
+Success! Here is your flag:
+pwn.college{g_IYFI3eFzQPrg9YKcubDFSoif1.dBzM4QDL5gDO0czW}
+hacker@commands~touching-files:~$
+```
+
+Here we are rewarded with the flag `pwn.college{g_IYFI3eFzQPrg9YKcubDFSoif1.dBzM4QDL5gDO0czW}`, upon submitting of which, the challenge is completed.
+
+## removing files
+To clean up, we can remove files by the command `rm`.
+
+Here, a `delete_me` file has been created in our home directory. To obtain the flag, we need to remove the file and run `/challenge/check`:
+```
+hacker@commands~removing-files:~$ rm delete_me
+hacker@commands~removing-files:~$ /challenge/check
+Excellent removal. Here is your reward:
+pwn.college{gbiddWOFrkjSePbLEhpb4cQtHXn.dZTOwUDL5gDO0czW}
+hacker@commands~removing-files:~$
+```
+
+Here we are rewarded with the flag `pwn.college{gbiddWOFrkjSePbLEhpb4cQtHXn.dZTOwUDL5gDO0czW}`, upon submitting of which, the challenge is completed.
+
 
 
 
