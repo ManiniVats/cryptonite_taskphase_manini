@@ -119,3 +119,50 @@ pwn.college{kWbDsmUkeffjp7MYyzD9iJfilGn.dlDN1QDL5gDO0czW}
 Here, we are rewarded with the flag `pwn.college{kWbDsmUkeffjp7MYyzD9iJfilGn.dlDN1QDL5gDO0czW}`, upon submitting of which, the challenge is completed.
 
 ## Explicit Relative Paths, from /
+Here, we need to use relative path along with an implicit entry `.`, which refers back to the same directory.
+Thus, when we try to execute `challenge/run` using just a relative path, we get an error:
+```
+hacker@paths~explicit-relative-paths-from-:~$ cd /
+hacker@paths~explicit-relative-paths-from-:/$ challenge/run
+Incorrect...
+This challenge must be called with a relative path that explicitly starts with a `.`!
+```
+Now we know that our path starts with `.`
+```
+hacker@paths~explicit-relative-paths-from-:/$ ./challenge/run
+Correct!!!
+./challenge/run is a relative path, invoked from the right directory!
+Here is your flag:
+pwn.college{IXGwdUEdLLuIyNLfLwZbQDVRDnS.dBTN1QDL5gDO0czW}
+hacker@paths~explicit-relative-paths-from-:/$
+```
+
+>[!Important]
+>In Linux, `challenge`, `./challenge`, `./././challenge` and `challenge/.` are all identical relative paths.
+
+Here, we are rewarded with the flag `pwn.college{IXGwdUEdLLuIyNLfLwZbQDVRDnS.dBTN1QDL5gDO0czW}`, upon submitting of which, the challenge is completed.
+
+## Implicit Relative Path
+Given that we have to run our program with `/challenge` as the `cwd`.
+
+But here, we get an error because of the linux security protocol where it automatically avoids looking in the current directory when we provide a 'naked' path:
+> A naked path directly specifies which directory to descend into from the current directory.
+```
+hacker@paths~implicit-relative-path:~$ cd /challenge
+hacker@paths~implicit-relative-path:/challenge$ run
+ssh-entrypoint: run: command not found
+```
+To overcome this, we have to tell tell Linux that we explicitly want to execute a program in the current directory, using `.` like in the previous challenge.
+```
+hacker@paths~implicit-relative-path:/challenge$ ./run
+Correct!!!
+./run is a relative path, invoked from the right directory!
+Here is your flag:
+pwn.college{4SVJWTaIcpZYFwd6HU8zm89nGt4.dFTN1QDL5gDO0czW}
+```
+**This is necessary, or else we could accidentally execute a program in our `cwd` that happened to have the same name as the core system utilities.**
+
+Here, we are rewarded with the flag `ppwn.college{4SVJWTaIcpZYFwd6HU8zm89nGt4.dFTN1QDL5gDO0czW}`, upon submitting of which, the challenge is completed.
+
+
+
