@@ -131,7 +131,114 @@ hacker@commands~hidden-files:/$
 Here we are rewarded with the flag `pwn.college{gvUujNHlEP0IR21HTxy94PBspf-.dBTN4QDL5gDO0czW}`, upon submitting of which, the challenge is completed.
 
 ## An Epic Filesystem Quest
-_getting errors_
+In this challenge, we need to play and complete a game using `ls`, `cd`, and `cat` commands, with the help of hints given at each level.
+
+We start by `cd`ing into the root directory `/`, and find `HINT` using the `ls` command, which we then `cat` out to get the next clue:
+```
+hacker@commands~an-epic-filesystem-quest:~$ cd /
+hacker@commands~an-epic-filesystem-quest:/$ ls
+HINT  boot       dev  flag  lib    lib64   media  nix  proc  run   srv  tmp  var
+bin   challenge  etc  home  lib32  libx32  mnt    opt  root  sbin  sys  usr
+hacker@commands~an-epic-filesystem-quest:/$ cat HINT
+Great sleuthing!
+The next clue is in: /opt/aflplusplus/qemu_mode/qemuafl/include/fpu
+
+Watch out! The next clue is **trapped**. You'll need to read it out without 'cd'ing into the directory; otherwise, the clue will self destruct!
+```
+Since the next clue is _trapped_, we will now directly `ls` the contents of the path given to find `TEASER-TRAPPED`, which we then `cat`out to get the next clue:
+```
+hacker@commands~an-epic-filesystem-quest:/$ ls /opt/aflplusplus/qemu_mode/qemuafl/include/fpu
+TEASER-TRAPPED  softfloat-helpers.h  softfloat-macros.h  softfloat-types.h  softfloat.h
+hacker@commands~an-epic-filesystem-quest:/$ cat /opt/aflplusplus/qemu_mode/qemuafl/include/fpu/TEASER-TRAPPED
+Lucky listing!
+The next clue is in: /usr/share/doc/binutils-aarch64-linux-gnu
+```
+We now `cd` into `/usr/share/doc/binutils-aarch64-linux-gnu`, and use `ls` command to find `DISPATCH`, which we then `cat` out to get the next clue:
+```
+hacker@commands~an-epic-filesystem-quest:/$ cd /usr/share/doc/binutils-aarch64-linux-gnu
+hacker@commands~an-epic-filesystem-quest:/usr/share/doc/binutils-aarch64-linux-gnu$ ls
+DISPATCH  README.cross  bfd  changelog.Debian.gz  copyright  gas  gprof  ld  test-summary.gz
+hacker@commands~an-epic-filesystem-quest:/usr/share/doc/binutils-aarch64-linux-gnu$ cat DISPATCH
+Yahaha, you found me!
+The next clue is in: /usr/share/javascript/mathjax/unpacked/localization/qqq
+
+Watch out! The next clue is **trapped**. You'll need to read it out without 'cd'ing into the directory; otherwise, the clue will self destruct!
+```
+Since the next clue is _trapped_, we will now directly `ls` the contents of the path given to find `MEMO-TRAPPED`, which we then `cat` out to get the next clue:
+```
+hacker@commands~an-epic-filesystem-quest:/usr/share/doc/binutils-aarch64-linux-gnu$ ls /usr/share/javascript/mathjax/unpacked/localization/qqq
+FontWarnings.js  HTML-CSS.js  HelpDialog.js  MEMO-TRAPPED  MathML.js  MathMenu.js  TeX.js  qqq.js
+hacker@commands~an-epic-filesystem-quest:/usr/share/doc/binutils-aarch64-linux-gnu$ cat /usr/share/javascript/mathjax/unpacked/localization/qqq/MEMO-TRAPPED
+Great sleuthing!
+The next clue is in: /usr/lib/python3/dist-packages/itsdangerous-1.1.0.egg-info
+
+Watch out! The next clue is **trapped**. You'll need to read it out without 'cd'ing into the directory; otherwise, the clue will self destruct!
+```
+Since the next clue is _trapped_, we will now directly `ls` the contents of the path given to find `README-TRAPPED`, which we then `cat` out to get the next clue:
+```
+hacker@commands~an-epic-filesystem-quest:/usr/share/doc/binutils-aarch64-linux-gnu$ ls /usr/lib/python3/dist-packages/itsdangerous-1.1.0.egg-info
+PKG-INFO  README-TRAPPED  dependency_links.txt  top_level.txt
+hacker@commands~an-epic-filesystem-quest:/usr/share/doc/binutils-aarch64-linux-gnu$ cat /usr/lib/python3/dist-packages/itsdangerous-1.1.0.egg-info/README-TRAPPED
+Yahaha, you found me!
+The next clue is in: /usr/lib/python3/dist-packages/sage/geometry/polyhedron/__pycache__
+
+The next clue is **hidden** --- its filename starts with a '.' character. You'll need to look for it using special options to 'ls'.
+```
+Since the next clue is _hidden_, we need to pass `-a` argument to the `ls` command, to find the hidden clue `.DOSSIER`, which we then `cat` out to get the next clue:
+```
+hacker@commands~an-epic-filesystem-quest:/usr/share/doc/binutils-aarch64-linux-gnu$ ls -a /usr/lib/python3/dist-packages/sage/geometry/polyhedron/__pycache__
+.                                base.cpython-38.pyc                              library.cpython-38.pyc
+..                               base_QQ.cpython-38.pyc                           misc.cpython-38.pyc
+.DOSSIER                         base_RDF.cpython-38.pyc                          palp_database.cpython-38.pyc
+__init__.cpython-38.pyc          base_ZZ.cpython-38.pyc                           parent.cpython-38.pyc
+all.cpython-38.pyc               cdd_file_format.cpython-38.pyc                   plot.cpython-38.pyc
+backend_cdd.cpython-38.pyc       constructor.cpython-38.pyc                       ppl_lattice_polygon.cpython-38.pyc
+backend_field.cpython-38.pyc     double_description.cpython-38.pyc                ppl_lattice_polytope.cpython-38.pyc
+backend_normaliz.cpython-38.pyc  double_description_inhomogeneous.cpython-38.pyc  representation.cpython-38.pyc
+backend_polymake.cpython-38.pyc  face.cpython-38.pyc
+backend_ppl.cpython-38.pyc       lattice_euclidean_group_element.cpython-38.pyc
+hacker@commands~an-epic-filesystem-quest:/usr/share/doc/binutils-aarch64-linux-gnu$ cat /usr/lib/python3/dist-packages/sage/geometry/polyhedron/__pycache__/.DOSSIER
+Tubular find!
+The next clue is in: /usr/lib/python3/dist-packages/prompt_toolkit/contrib/completers
+
+Watch out! The next clue is **trapped**. You'll need to read it out without 'cd'ing into the directory; otherwise, the clue will self destruct!
+```
+Since the next clue is _trapped_, we will now directly `ls` the contents of the path given to find `BLUEPRINT-TRAPPED`, which we then `cat` out to get the next clue:
+```
+hacker@commands~an-epic-filesystem-quest:/usr/share/doc/binutils-aarch64-linux-gnu$ ls /usr/lib/python3/dist-packages/prompt_toolkit/contrib/completers
+BLUEPRINT-TRAPPED  __init__.py  __pycache__  system.py
+hacker@commands~an-epic-filesystem-quest:/usr/share/doc/binutils-aarch64-linux-gnu$ cat /usr/lib/python3/dist-packages/prompt_toolkit/contrib/completers/BLUEPRINT-TRAPPED
+Tubular find!
+The next clue is in: /opt/linux/linux-5.4/drivers/bcma
+```
+Thus, we now `ls` the contents of `/opt/linux/linux-5.4/drivers/bcma` to find `REVELATION`, which we then `cat` out to get the next clue:
+```
+hacker@commands~an-epic-filesystem-quest:/usr/share/doc/binutils-aarch64-linux-gnu$ ls /opt/linux/linux-5.4/drivers/bcma
+Kconfig     bcma_private.h              driver_chipcommon_pflash.c  driver_mips.c      host_soc.c
+Makefile    core.c                      driver_chipcommon_pmu.c     driver_pci.c       main.c
+README      driver_chipcommon.c         driver_chipcommon_sflash.c  driver_pci_host.c  scan.c
+REVELATION  driver_chipcommon_b.c       driver_gmac_cmn.c           driver_pcie2.c     scan.h
+TODO        driver_chipcommon_nflash.c  driver_gpio.c               host_pci.c         sprom.c
+hacker@commands~an-epic-filesystem-quest:/usr/share/doc/binutils-aarch64-linux-gnu$ cat /opt/linux/linux-5.4/drivers/bcma/REVELATION
+Lucky listing!
+The next clue is in: /usr/share/javascript/mathjax/unpacked/jax/output/HTML-CSS/fonts/Asana-Math/Size3
+
+The next clue is **delayed** --- it will not become readable until you enter the directory with 'cd'.
+```
+Since the next clue is _delayed_, we cannot directly `ls` the contents of the path given. 
+
+We first need to `cd` into it, then use `ls` command to find `POINTER`, which we then `cat` out to finally finish the game and get the flag.
+```
+hacker@commands~an-epic-filesystem-quest:/usr/share/doc/binutils-aarch64-linux-gnu$ cd /usr/share/javascript/mathjax/unpacked/jax/output/HTML-CSS/fonts/Asana-Math/Size3
+hacker@commands~an-epic-filesystem-quest:/usr/share/javascript/mathjax/unpacked/jax/output/HTML-CSS/fonts/Asana-Math/Size3$ ls
+POINTER  Regular
+hacker@commands~an-epic-filesystem-quest:/usr/share/javascript/mathjax/unpacked/jax/output/HTML-CSS/fonts/Asana-Math/Size3$ cat POINTER
+CONGRATULATIONS! Your perserverence has paid off, and you have found the flag!
+It is: pwn.college{0IJ2ZPwoNZbTjREJJ9_8xGK5jvH.dljM4QDL5gDO0czW}
+hacker@commands~an-epic-filesystem-quest:/usr/share/javascript/mathjax/unpacked/jax/output/HTML-CSS/fonts/Asana-Math/Size3$
+```
+
+Here we are rewarded with the flag `pwn.college{0IJ2ZPwoNZbTjREJJ9_8xGK5jvH.dljM4QDL5gDO0czW}`, upon submitting of which, the challenge is completed.
 
 ## making directories
 We can make directories using the `mkdir` command.
