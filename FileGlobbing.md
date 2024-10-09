@@ -1,3 +1,4 @@
+
 # File Globbing
 Globbing lets us reference files without typing out their full paths.
 
@@ -44,3 +45,26 @@ hacker@globbing~matching-with-:/challenge/files$
 Here we are rewarded with the flag `pwn.college{4u0YNbcvmvStcBYDnzA4zMmit9j.dNjM4QDL5gDO0czW}`, upon submitting of which, the challenge is completed.
 
 ## Matching paths with []
+We can expand entire paths with our globbed arguments.
+In this challenge, we need to run `/challenge/run` with a single argument that bracket-globs into the absolute paths to the `file_b`, `file_a`, `file_s`, and `file_h` files, which have been placed at `/challenges/files`
+```
+hacker@globbing~matching-paths-with-:~$ /challenge/run /challenge/files/file_[bash]
+You got it! Here is your flag!
+pwn.college{IaHTtzZrLf_46MtatR8t8MNg_DN.dRjM4QDL5gDO0czW}
+hacker@globbing~matching-paths-with-:~$
+```
+Here we are rewarded with the flag `pwn.college{IaHTtzZrLf_46MtatR8t8MNg_DN.dRjM4QDL5gDO0czW}`, upon submitting of which, the challenge is completed.
+
+## Mixing Globs
+In this challenge, we have to write a single, 6 characters or less glob that will match the files "challenging", "educational", and "pwning".
+
+Thus, `[cep]*` (=6 characters) would be required to run as the argument.
+```
+hacker@globbing~mixing-globs:~$ cd /challenge/files
+hacker@globbing~mixing-globs:/challenge/files$ /challenge/run [cep]*
+You got it! Here is your flag!
+pwn.college{gtzxcF2diKmJb8MOGnKGSwFN2zm.dVjM4QDL5gDO0czW}
+hacker@globbing~mixing-globs:/challenge/files$
+```
+
+Here we are rewarded with the flag `pwn.college{gtzxcF2diKmJb8MOGnKGSwFN2zm.dVjM4QDL5gDO0czW}`, upon submitting of which, the challenge is completed.
