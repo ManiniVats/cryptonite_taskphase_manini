@@ -223,9 +223,10 @@ A `hard link` is an alternate address that indexes that data, thus they immediat
 
 A `soft/symbolic link`, instead, contains the original file name. When we access the symbolic link, Linux reads the original file name, and then automatically accesses that file.
 
+> Soft links are also known as symlinks.
+
 Symbolic links are created with `ln` as command and with `-s` as argument
 
-> Soft links are also known as symlinks.
 
 >[!NOTE]
 >The `file` command recognises symlinks.
@@ -239,6 +240,6 @@ pwn.college{gqB_S2JdM0hl0b6Y7uswvXsX859.dlTM1UDL5gDO0czW}
 hacker@commands~linking-files:~$
 ```
 >[!CAUTION]
->>The original file path comes before the link path in this command.
+>The original file path comes before the link path in this command.
 
 Here we are rewarded with the flag `pwn.college{gqB_S2JdM0hl0b6Y7uswvXsX859.dlTM1UDL5gDO0czW}`, upon submitting of which, the challenge is completed.
