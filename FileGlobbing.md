@@ -27,3 +27,20 @@ pwn.college{4T3nEaVEQCX7Bnz6XBhzNSRPgKz.dJjM4QDL5gDO0czW}
 hacker@globbing~matching-with-:/challenge$
 ```
 Here we are rewarded with the flag `pwn.college{4T3nEaVEQCX7Bnz6XBhzNSRPgKz.dJjM4QDL5gDO0czW}`, upon submitting of which, the challenge is completed.
+
+## Matching with []
+`[]` is a limited form of ?, in the sense that instead of matching any character, it will look for some subset of potential characters, specified within the `[]`.
+
+Here, we need to change our `cwd` to `/challenge/files` and run `/challenge/run` with a single argument that bracket-globs into file_b, file_a, file_s, and file_h.
+
+To bracket-glob file_b, file_a, file_s, and file_h, the argument needed would be `file_[bash]`.
+```
+hacker@globbing~matching-with-:~$ cd /challenge/files
+hacker@globbing~matching-with-:/challenge/files$ /challenge/run file_[bash]
+You got it! Here is your flag!
+pwn.college{4u0YNbcvmvStcBYDnzA4zMmit9j.dNjM4QDL5gDO0czW}
+hacker@globbing~matching-with-:/challenge/files$
+```
+Here we are rewarded with the flag `pwn.college{4u0YNbcvmvStcBYDnzA4zMmit9j.dNjM4QDL5gDO0czW}`, upon submitting of which, the challenge is completed.
+
+## Matching paths with []
