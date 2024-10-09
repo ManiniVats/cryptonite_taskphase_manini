@@ -150,7 +150,7 @@ hacker@man~helpful-programs:~$ /challenge/challenge -p
 The secret value is: 345
 hacker@man~helpful-programs:~$
 ```
-Now that we know the value to be `345`, we use the `-g` argument:
+Now that we know the value to be `345`, we use the `-g GIVE_THE_FLAG` argument:
 ```
 hacker@man~helpful-programs:~$ /challenge/challenge -g 345
 Correct usage! Your flag: pwn.college{YTCdnAdvM3ioHteSYKWkyYVJhLT.ddjM4QDL5gDO0czW}
