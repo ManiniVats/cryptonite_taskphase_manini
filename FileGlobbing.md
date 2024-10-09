@@ -57,7 +57,6 @@ Here we are rewarded with the flag `pwn.college{IaHTtzZrLf_46MtatR8t8MNg_DN.dRjM
 
 ## Mixing Globs
 In this challenge, we have to write a single, 6 characters or less glob that will match the files "challenging", "educational", and "pwning".
-
 Thus, `[cep]*` (=6 characters) would be required to run as the argument.
 ```
 hacker@globbing~mixing-globs:~$ cd /challenge/files
@@ -68,3 +67,20 @@ hacker@globbing~mixing-globs:/challenge/files$
 ```
 
 Here we are rewarded with the flag `pwn.college{gtzxcF2diKmJb8MOGnKGSwFN2zm.dVjM4QDL5gDO0czW}`, upon submitting of which, the challenge is completed.
+
+## Exclusionary Globbing
+If the first character in `[]` is a `!` or a `^`, the glob filters out the files that matches the characters listed.
+
+In this challenge, we have to run `/challenge/run` with all the files that don't start with `p`, `w`, or `n` in `/challenges/files`.
+Thus `[!pwn]*` needs to passed as the argument.
+```
+hacker@globbing~exclusionary-globbing:~$ cd /challenge/files
+hacker@globbing~exclusionary-globbing:/challenge/files$ /challenge/run [!pwn]*
+You got it! Here is your flag!
+pwn.college{ILK2wDmqgUyf2qFgaJ9A20F7BNJ.dZjM4QDL5gDO0czW}
+hacker@globbing~exclusionary-globbing:/challenge/files$
+```
+>[!NOTE]
+>The `!` character has a different meaning in bash when it's not the first character of a [] glob
+
+Here we are rewarded with the flag `pwn.college{ILK2wDmqgUyf2qFgaJ9A20F7BNJ.dZjM4QDL5gDO0czW}`, upon submitting of which, the challenge is completed.
