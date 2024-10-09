@@ -217,4 +217,28 @@ Thus, we `find` our flag in the `/opt/radare2/shlr/capstone/.git/refs/tags/flag`
 Here we are rewarded with the flag `pwn.college{oqfK2d7be6gZhpev7lVcRFL39gy.dJzM4QDL5gDO0czW}`, upon submitting of which, the challenge is completed.
 
 ## linking files
+A file is an address at which the contents of that file live. 
 
+A `hard link` is an alternate address that indexes that data, thus they immediately yield the necessary data. 
+
+A `soft/symbolic link`, instead, contains the original file name. When we access the symbolic link, Linux reads the original file name, and then automatically accesses that file.
+
+Symbolic links are created with `ln` as command and with `-s` as argument
+
+> Soft links are also known as symlinks.
+
+>[!NOTE]
+>The `file` command recognises symlinks.
+
+Here, we need to link `/home/hacker/not-the-flag` to `/flag` so that executing `/challenge/catflag` will get us the flag stored in `/flag`:
+```
+hacker@commands~linking-files:~$ ln -s /flag /home/hacker/not-the-flag
+hacker@commands~linking-files:~$ /challenge/catflag
+About to read out the /home/hacker/not-the-flag file!
+pwn.college{gqB_S2JdM0hl0b6Y7uswvXsX859.dlTM1UDL5gDO0czW}
+hacker@commands~linking-files:~$
+```
+>[!CAUTION]
+>>The original file path comes before the link path in this command.
+
+Here we are rewarded with the flag `pwn.college{gqB_S2JdM0hl0b6Y7uswvXsX859.dlTM1UDL5gDO0czW}`, upon submitting of which, the challenge is completed.
