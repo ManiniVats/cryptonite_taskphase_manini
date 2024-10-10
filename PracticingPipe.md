@@ -156,4 +156,69 @@ hacker@piping~grepping-stored-results:~$
 flag: `pwn.college{MTJXMZ0FBKdFOhNL2hqKxiqlKzU.dhTM4QDL5gDO0czW}`
 
 ## Grepping Live Output
+Here we need to grep for our flag in the output of `/challenge/run` using pipe operator `|` .
+
+By using `|`, output from the command to the left of the `|` will be connected to the input of the command to the right of the `|`.
+```
+hacker@piping~grepping-live-output:~$ /challenge/run | grep pwn.college
+[INFO] WELCOME! This challenge makes the following asks of you:
+[INFO] - the challenge checks for a specific process at the other end of stdout : grep
+[INFO] - the challenge will output a reward file if all the tests pass : /challenge/.data.txt
+
+[HYPE] ONWARDS TO GREATNESS!
+
+[INFO] This challenge will perform a bunch of checks.
+[INFO] If you pass these checks, you will receive the /challenge/.data.txt file.
+
+[TEST] You should have redirected my stdout to another process. Checking...
+[TEST] Performing checks on that process!
+
+[INFO] The process' executable is /nix/store/xpq4yhadyhazkcsggmqd7rsgvxb3kjy4-gnugrep-3.11/bin/grep.
+[INFO] This might be different than expected because of symbolic links (for example, from /usr/bin/python to /usr/bin/python3 to /usr/bin/python3.8).
+[INFO] To pass the checks, the executable must be grep.
+
+[PASS] You have passed the checks on the process on the other end of my stdout!
+[PASS] Success! You have satisfied all execution requirements.
+pwn.college{MLirc788SOcPX_a_pobnhNE6kjK.dlTM4QDL5gDO0czW}
+hacker@piping~grepping-live-output:~$
+```
+flag: `pwn.college{MLirc788SOcPX_a_pobnhNE6kjK.dlTM4QDL5gDO0czW}`
+
+## Grepping Errors 
+The `>&` operator redirects a FD to another FD. 
+
+Here we need to `grep` through errors directly.
+
+>[!NOTE]
+>We cannot use `|` here since it redirects only standard _output_ to another program, not errors.
+
+Thus, we will first redirect standard error to standard output by using `2>&1` and then `pipe` them to grep for our flag :
+```
+hacker@piping~grepping-errors:~$ /challenge/run 2>&1 | grep pwn.college
+[INFO] WELCOME! This challenge makes the following asks of you:
+[INFO] - the challenge checks for a specific process at the other end of stderr : grep
+[INFO] - the challenge will output a reward file if all the tests pass : /challenge/.data.txt
+
+[HYPE] ONWARDS TO GREATNESS!
+
+[INFO] This challenge will perform a bunch of checks.
+[INFO] If you pass these checks, you will receive the /challenge/.data.txt file.
+
+[TEST] You should have redirected my stderr to another process. Checking...
+[TEST] Performing checks on that process!
+
+[INFO] The process' executable is /nix/store/xpq4yhadyhazkcsggmqd7rsgvxb3kjy4-gnugrep-3.11/bin/grep.
+[INFO] This might be different than expected because of symbolic links (for example, from /usr/bin/python to /usr/bin/python3 to /usr/bin/python3.8).
+[INFO] To pass the checks, the executable must be grep.
+
+[PASS] You have passed the checks on the process on the other end of my stderr!
+[PASS] Success! You have satisfied all execution requirements.
+pwn.college{scIfEy2QOTjJRwHtJrjFEeU6OW5.dVDM5QDL5gDO0czW}
+hacker@piping~grepping-errors:~$
+```
+flag: `pwn.college{scIfEy2QOTjJRwHtJrjFEeU6OW5.dVDM5QDL5gDO0czW}`
+
+## Duplicating Piped Data with tee
+
+
 
