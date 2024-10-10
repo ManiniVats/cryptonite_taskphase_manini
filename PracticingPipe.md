@@ -225,7 +225,18 @@ In this challenge, we need to pipe the output of `/challenge/pwn` into `/challen
 
 _getting errors_
 
+## Writing To Multiple Programs
+The `tee` command is designed to write to files and to standard output only. But we can write a command as `>(command)` to pass it in as a file.
 
+Here, we need to run the `/challenge/hack` command, and duplicate its output as input to both the `/challenge/the` and the `/challenge/planet`:
+```
+hacker@piping~writing-to-multiple-programs:~$ /challenge/hack | tee >(/challenge/the) | /challenge/planet
+Congratulations, you have duplicated data into the input of two programs! Here
+is your flag:
+pwn.college{8jjbhISON5yV6-eZpmNfHwkfoRP.dBDO0UDL5gDO0czW}
+hacker@piping~writing-to-multiple-programs:~$
+```
+flag: `pwn.college{8jjbhISON5yV6-eZpmNfHwkfoRP.dBDO0UDL5gDO0czW}`
 
 
 
