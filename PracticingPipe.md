@@ -89,9 +89,10 @@ flag: `pwn.college{gQtOa3HkwevB5MNRqqeKH5w2Ah7.ddDM5QDL5gDO0czW}`
 
 ## Redirecting Errors
 When we redirect process communication, we do it by FD number:
--FD 0: Standard Input
--FD 1: Standard Output
--FD 2: Standard Error
+
+- FD 0: Standard Input
+- FD 1: Standard Output
+- FD 2: Standard Error
 > FD: File Descriptor
 
 In this challenge, we need to redirect the output of `/challenge/run`, to `myflag`, and the errors to `instructions`, and then `cat` out `myflag`:
@@ -107,3 +108,52 @@ hacker@piping~redirecting-errors:~$
 flag: `pwn.college{gqXZJOVOLN6QS2M1esHGDTimlS8.ddjN1QDL5gDO0czW}`
 
 ## Redirecting Input 
+`<` is used to redirect input to programs.
+
+In this challenge, we need to redirect the `PWN` file to `/challenge/run` and have the `PWN` file contain the value `COLLEGE`. Thus we need to use both input and output redirection.
+```
+hacker@piping~redirecting-input:~$ echo COLLEGE > PWN
+hacker@piping~redirecting-input:~$ /challenge/run < PWN
+Reading from standard input...
+Correct! You have redirected the PWN file into my standard input, and I read
+the value 'COLLEGE' out of it!
+Here is your flag:
+pwn.college{gO7k70y1wOvh8O1PIbk8lrStCR3.dBzN1QDL5gDO0czW}
+hacker@piping~redirecting-input:~$
+```
+flag: `pwn.college{gO7k70y1wOvh8O1PIbk8lrStCR3.dBzN1QDL5gDO0czW}`
+
+## Grepping Stored Results
+Here we need to redirect the output of `/challenge/run` to `/tmp/data.txt` and grep it for the flag.
+
+First, we execute `/challenge/run > /tmp/data.txt` for the output redirection:
+```
+hacker@piping~grepping-stored-results:~$ /challenge/run > /tmp/data.txt
+[INFO] WELCOME! This challenge makes the following asks of you:
+[INFO] - the challenge will check that output is redirected to a specific file path : /tmp/data.txt
+[INFO] - the challenge will output a reward file if all the tests pass : /challenge/.data.txt
+
+[HYPE] ONWARDS TO GREATNESS!
+
+[INFO] This challenge will perform a bunch of checks.
+[INFO] If you pass these checks, you will receive the /challenge/.data.txt file.
+
+[TEST] You should have redirected my stdout to a file called /tmp/data.txt. Checking...
+
+[HINT] File descriptors are inherited from the parent, unless the FD_CLOEXEC is set by the parent on the file descriptor.
+[HINT] For security reasons, some programs, such as python, do this by default in certain cases. Be careful if you are
+[HINT] creating and trying to pass in FDs in python.
+
+[PASS] The file at the other end of my stdout looks okay!
+[PASS] Success! You have satisfied all exe
+```
+Now, we know that our flag contains `pwn.college`. Thus, grepping `/tmp/data.txt` for it, we get the flag:
+```
+hacker@piping~grepping-stored-results:~$ grep pwn.college /tmp/data.txt
+pwn.college{MTJXMZ0FBKdFOhNL2hqKxiqlKzU.dhTM4QDL5gDO0czW}
+hacker@piping~grepping-stored-results:~$
+```
+flag: `pwn.college{MTJXMZ0FBKdFOhNL2hqKxiqlKzU.dhTM4QDL5gDO0czW}`
+
+## Grepping Live Output
+
