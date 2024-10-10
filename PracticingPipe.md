@@ -223,7 +223,8 @@ The `tee` command duplicates data flowing through our `pipes` to any number of f
 
 In this challenge, we need to pipe the output of `/challenge/pwn` into `/challenge/college` but also need to figure out the code to intercept the output of `pwn`.
 
-_getting errors_
+_getting error_
+
 
 ## Writing To Multiple Programs
 The `tee` command is designed to write to files and to standard output only. But we can write a command as `>(command)` to pass it in as a file.
