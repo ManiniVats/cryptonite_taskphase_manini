@@ -219,6 +219,13 @@ hacker@piping~grepping-errors:~$
 flag: `pwn.college{scIfEy2QOTjJRwHtJrjFEeU6OW5.dVDM5QDL5gDO0czW}`
 
 ## Duplicating Piped Data with tee
+The `tee` command duplicates data flowing through our `pipes` to any number of files provided on the command line.
+
+In this challenge, we need to pipe the output of `/challenge/pwn` into `/challenge/college` but also need to figure out the code to intercept the output of `pwn`.
+
+_getting errors_
+
+
 
 
 
