@@ -239,4 +239,17 @@ hacker@piping~writing-to-multiple-programs:~$
 flag: `pwn.college{8jjbhISON5yV6-eZpmNfHwkfoRP.dBDO0UDL5gDO0czW}`
 
 
+## Split-piping stderr and stdout
+First we need to redirect `/challenge/hack`'s stderr to `/challenge/the` by using `2>` and `>(/challenge/the)`.
+
+We also need to redirect `/challenge/hack`'s stdout to `/challenge/planet` by piping `>(/challenge/the)` and `/challenge/planet`
+```
+hacker@piping~split-piping-stderr-and-stdout:~$ /challenge/hack 2> >(/challenge/the) | /challenge/planet
+Congratulations, you have learned a redirection technique that even experts
+struggle with! Here is your flag:
+pwn.college{4CIL_wO3YpGcI6Ff6hY3pgA0CF_.dFDNwYDL5gDO0czW}
+hacker@piping~split-piping-stderr-and-stdout:~$
+```
+flag: `pwn.college{4CIL_wO3YpGcI6Ff6hY3pgA0CF_.dFDNwYDL5gDO0czW}`
+
 
