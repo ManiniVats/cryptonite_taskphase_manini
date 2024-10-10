@@ -221,10 +221,27 @@ flag: `pwn.college{scIfEy2QOTjJRwHtJrjFEeU6OW5.dVDM5QDL5gDO0czW}`
 ## Duplicating Piped Data with tee
 The `tee` command duplicates data flowing through our `pipes` to any number of files provided on the command line.
 
-In this challenge, we need to pipe the output of `/challenge/pwn` into `/challenge/college` but also need to figure out the code to intercept the output of `pwn`.
+In this challenge, we need to pipe the output of `/challenge/pwn` into `/challenge/college` but also need to figure out the argument to be passed to `/challenge/pwn` to get the flag.
 
-_getting error_
+Thus we need to `pipe` the output into both a file and a command with the help of `tee`
 
+Now we run `/challenge/pwn | tee output | /challenge/college` and then `cat output`:
+```
+Usage: /challenge/pwn --secret [SECRET_ARG]
+
+SECRET_ARG should be "cOyPdtpO"
+hacker@piping~duplicating-piped-data-with-tee:~$
+```
+Thus we have to pass `--secret [SECRET_ARG]` with `[SECRET_ARG]` as `cOyPdtpO` into `/challenge/pwn` to get our flag.
+```
+hacker@piping~duplicating-piped-data-with-tee:~$ /challenge/pwn --secret cOyPdtpO | /challenge/college
+Processing...
+Correct! Passing secret value to /challenge/college...
+Great job! Here is your flag:
+pwn.college{cOyPdtpOa6CCreD8o_jkn7BJ5YZ.dFjM5QDL5gDO0czW}
+hacker@piping~duplicating-piped-data-with-tee:~$
+```
+flag:`pwn.college{cOyPdtpOa6CCreD8o_jkn7BJ5YZ.dFjM5QDL5gDO0czW}`
 
 ## Writing To Multiple Programs
 The `tee` command is designed to write to files and to standard output only. But we can write a command as `>(command)` to pass it in as a file.
