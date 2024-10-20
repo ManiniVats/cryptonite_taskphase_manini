@@ -28,3 +28,7 @@ hacker@path~setting-path:~$
 flag: `pwn.college{4Iep5h3NRaGi5hu7TO6A_Nded7I.dVzNyUDL5gDO0czW}`
 
 ## Adding Commands
+In this challenge, `win` does not exist. We need to make a shell script called `win`, add its location to the `PATH`, and use `/challenge/run` to find it.
+But because of this, the system won't be able to find comamnds like `cat`. Thus we need to use some other method get the flag.
+
+
