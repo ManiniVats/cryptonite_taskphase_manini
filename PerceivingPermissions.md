@@ -330,43 +330,67 @@ flag: `pwn.college{gsdj1VjN7tbGU2OmLQUPu7YVhG9.dBTM2QDL5gDO0czW}`
 Here, similar to the previous challenge, we practice `chmod` with these additional features.
 
 - Round 1
+  
 Current Permissions: rw-r--r--
+
 Needed Permissions: --xrwxr-x
+
 Thus: `chmod u=x,g=rwx,o=rx /challenge/pwn`
 
 - Round 2
+  
 Current Permissions: --xrwxr-x
+
 Needed Permissions: rwx-wx-wx
+
 Thus: `chmod u=rwx,g=wx,o=wx /challenge/pwn`
 
 - Round 3
+  
 Current Permissions: rwx-wx-wx
+
 Needed Permissions: -w---xrwx
+
 Thus: `chmod u=w,g=x,o=rwx /challenge/pwn`
 
-- Round 4 
+- Round 4
+  
 Current Permissions: -w---xrwx
+
 Needed Permissions: -wx-w----
+
 Thus: `chmod u=wx,g=w,o=- /challenge/pwn`
 
 - Round 5
+  
 Current Permissions: -wx-w----
+
 Needed Permissions: -wxr-xrw-
+
 Thus: `chmod u=wx,g=rx,o=rw /challenge/pwn`
 
 - Round 6
+
 Current Permissions: -wxr-xrw-
+
 Needed Permissions: rwx---rwx
+
 Thus: `chmod u=rwx,g=-,o=rwx /challenge/pwn`
 
 - Round 7
+  
 Current Permissions: rwx---rwx
+
 Needed Permissions: r----xrwx
+
 Thus: `chmod u=r,g=x,o=rwx /challenge/pwn`
 
 - Round 8
+  
 Current Permissions: r----xrwx
+
 Needed Permissions: rwxrw-rwx
+
 Thus: `chmod u=rwx,g=rw,o=rwx /challenge/pwn`
 
 After solving the 8 rounds:
