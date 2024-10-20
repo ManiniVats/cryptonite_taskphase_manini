@@ -3,7 +3,7 @@ Viewing and interacting with processes
 
 ##Listing Processes
 We can use `ps` to list processes.
-
+ 
 Here `/challnge/run` has been renamed to random file which we need to find in the `/challenge` directory by grepping through the processes list busing `ps -ef` or `ps aux`
 
 ```
