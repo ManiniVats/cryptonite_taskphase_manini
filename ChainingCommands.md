@@ -29,7 +29,30 @@ hacker@chaining~your-first-shell-script:~$
 ```
 flag: `pwn.college{8Af9xOrXcOV03QKbGwVUu_3Eqle.dFzN4QDL5gDO0czW}`
 
-
-
-
 ## Redirecting Script Output
+We can use piping `|` from our script to another program.
+
+Here, we need to create the script as in the previous challenge and pipe its output into the `/challenge/solve` command.
+
+```
+hacker@chaining~redirecting-script-output:~$ bash x.sh | /challenge/solve
+Correct! Here is your flag:
+pwn.college{QviJCSjlCt8qV8nVCJOSIPXpok7.dhTM5QDL5gDO0czW}
+hacker@chaining~redirecting-script-output:~$
+```
+flag: `pwn.college{QviJCSjlCt8qV8nVCJOSIPXpok7.dhTM5QDL5gDO0czW}`
+
+## Executable Shell Scripts
+We can directly run a `.sh` file without using the `bash` command by making the file _executable_
+
+Here we need to make a shellscript that will invoke `/challenge/solve`, make it executable, and run it without explicitly invoking bash.
+```
+hacker@chaining~executable-shell-scripts:~$ touch solve.sh
+hacker@chaining~executable-shell-scripts:~$ nano solve.sh
+hacker@chaining~executable-shell-scripts:~$ chmod u+x solve.sh
+hacker@chaining~executable-shell-scripts:~$ ./solve.sh
+Congratulations on your shell script execution! Your flag:
+pwn.college{s3vFlyMYpSvwVYFkTkDVxDXKg29.dRzNyUDL5gDO0czW}
+hacker@chaining~executable-shell-scripts:~$
+```
+flag: `pwn.college{s3vFlyMYpSvwVYFkTkDVxDXKg29.dRzNyUDL5gDO0czW}`
