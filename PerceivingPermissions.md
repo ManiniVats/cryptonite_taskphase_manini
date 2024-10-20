@@ -422,3 +422,17 @@ hacker@permissions~permissions-setting-practice:~$
 ```
 flag: `pwn.college{glRzRb2S-2ewt3jDjSQuhqei359.dNTM5QDL5gDO0czW}`
 
+## The SUID Bit
+The Set User ID (SUID) bit allows the user to run a program as the owner of that program's file.
+
+Here, we need to add the SUID bit to `/challenge/getroot` in order to get the flag from the root
+```
+hacker@permissions~the-suid-bit:~$ chmod u+s /challenge/getroot
+hacker@permissions~the-suid-bit:~$ /challenge/getroot
+SUCCESS! You have set the suid bit on this program, and it is running as root!
+Here is your shell...
+root@permissions~the-suid-bit:~# cat /flag
+pwn.college{0oVzq_nUmwsfXo0mgGLacIeJbxt.dNTM2QDL5gDO0czW}
+root@permissions~the-suid-bit:~#
+```
+flag : `pwn.college{0oVzq_nUmwsfXo0mgGLacIeJbxt.dNTM2QDL5gDO0czW}`
